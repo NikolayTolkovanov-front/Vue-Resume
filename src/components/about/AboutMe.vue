@@ -1,19 +1,10 @@
 <script>
+import aboutMeData from '../../data/about'
+
 export default {
 	setup() {
 		return {
-			bios: [
-				{
-					id: 1,
-					bio:
-						'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt totam dolorum, ducimus obcaecati, voluptas facilis molestias nobis ut quam natus similique inventore excepturi optio ipsa deleniti fugit illo. Unde, amet! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum illo necessitatibus perspiciatis! Aperiam perferendis labore temporibus, eos culpa corporis recusandae quas, fuga voluptatibus nesciunt odit libero tenetur neque consequatur ea.',
-				},
-				{
-					id: 2,
-					bio:
-						'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta?',
-				},
-			],
+			aboutMeData
 		};
 	},
 };
@@ -24,7 +15,7 @@ export default {
 		<!-- About profile image -->
 		<div class="w-full sm:w-1/4 mb-7 sm:mb-0">
 			<img
-				src="@/assets/images/profile.jpeg"
+				src="@/assets/images/profile.jpg"
 				class="rounded-xl w-96"
 				alt=""
 			/>
@@ -32,13 +23,17 @@ export default {
 
 		<!-- About details -->
 		<div class="w-full sm:w-3/4 text-left">
+			<p class="font-general-semibold text-xl text-ternary-dark dark:text-ternary-light font-semibold mb-2">Обо мне</p>
 			<p
-				v-for="bio in bios"
-				:key="bio.id"
 				class="font-general-regular mb-4 text-ternary-dark dark:text-ternary-light text-lg"
 			>
-				{{ bio.bio }}
+				{{ aboutMeData.description }}
 			</p>
+
+			<p class="font-general-semibold text-xl text-ternary-dark dark:text-ternary-light font-semibold mb-2">Навыки</p>
+			<ul class="font-general-regular">
+				<li class="font-general-regular mb-4 text-ternary-dark dark:text-ternary-light text-lg" v-for="skill in aboutMeData.skills" :key="skill.id">{{ skill.value }}</li>
+			</ul>
 		</div>
 	</div>
 </template>

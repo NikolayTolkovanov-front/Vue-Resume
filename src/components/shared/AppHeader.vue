@@ -1,7 +1,6 @@
 <script>
 import ThemeSwitcher from '../ThemeSwitcher';
 import HireMeModal from '../HireMeModal.vue';
-import feather from 'feather-icons';
 import AppHeaderLinks from './AppHeaderLinks.vue';
 import Button from '../reusable/Button.vue';
 
@@ -46,7 +45,6 @@ export default {
 		this.theme = localStorage.getItem('theme') || 'light';
 	},
 	mounted() {
-		feather.replace();
 		this.theme = localStorage.getItem('theme') || 'light';
 	},
 	methods: {
@@ -67,9 +65,6 @@ export default {
 				this.modal = true;
 			}
 		},
-	},
-	updated() {
-		feather.replace();
 	},
 };
 </script>
@@ -146,7 +141,7 @@ export default {
 				<!-- Hire me button -->
 				<div class="hidden md:block">
 					<Button
-						title="Hire Me"
+						title="Напиши мне"
 						class="text-md font-general-medium bg-indigo-500 hover:bg-indigo-600 text-white shadow-sm rounded-md px-5 py-2.5 duration-300"
 						@click="showModal()"
 						aria-label="Hire Me Button"

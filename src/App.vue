@@ -1,5 +1,4 @@
 <script>
-import feather from 'feather-icons';
 import AppHeader from './components/shared/AppHeader';
 import AppFooter from './components/shared/AppFooter';
 
@@ -12,12 +11,6 @@ export default {
 		return {
 			appTheme: localStorage.getItem('theme'),
 		};
-	},
-	mounted() {
-		feather.replace();
-	},
-	updated() {
-		feather.replace();
 	},
 };
 </script>

@@ -1,26 +1,18 @@
 <script>
 import AboutMe from '@/components/about/AboutMe';
 import AboutCounter from '@/components/about/AboutCounter';
-import AboutClients from '@/components/about/AboutClients';
-import feather from 'feather-icons';
+// import AboutClients from '@/components/about/AboutClients';
 
 export default {
 	name: 'About',
 	components: {
 		AboutMe,
 		AboutCounter,
-		AboutClients,
+		// AboutClients,
 	},
 	data: () => {
 		return {};
 	},
-	mounted() {
-		feather.replace();
-	},
-	updated() {
-		feather.replace();
-	},
-	methods: {},
 };
 </script>
 
@@ -35,9 +27,9 @@ export default {
 		<AboutCounter />
 
 		<!-- About counter -->
-		<div class="container mx-auto">
+		<!-- <div class="container mx-auto">
 			<AboutClients />
-		</div>
+		</div> -->
 	</div>
 </template>
 

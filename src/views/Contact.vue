@@ -1,5 +1,4 @@
 <script>
-import feather from 'feather-icons';
 import ContactForm from '@/components/contact/ContactForm.vue';
 import ContactDetails from '@/components/contact/ContactDetails.vue';
 
@@ -13,29 +12,24 @@ export default {
 			contacts: [
 				{
 					id: 1,
-					name: 'Your Address, Your City, Your Country',
+					name: 'г.Волгоград, Россия',
 					icon: 'map-pin',
 				},
 				{
 					id: 2,
-					name: 'email@domain.com',
+					name: 'tnrvlg@gmail.com',
 					icon: 'mail',
+					type: 'mail',
 				},
 				{
 					id: 3,
-					name: '555 8888 888',
+					name: '+7 961 665 44 12',
 					icon: 'phone',
+					type: 'phone',
 				},
 			],
 		};
 	},
-	mounted() {
-		feather.replace();
-	},
-	updated() {
-		feather.replace();
-	},
-	methods: {},
 };
 </script>
 
@@ -47,6 +41,6 @@ export default {
 		<ContactForm />
 
 		<!-- Contact details -->
-		<ContactDetails :contacts="contacts" />
+		<ContactDetails />
 	</div>
 </template>

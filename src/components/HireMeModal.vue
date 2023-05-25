@@ -1,21 +1,10 @@
 <script>
-import feather from 'feather-icons';
 import Button from './reusable/Button.vue';
 import FormInput from './reusable/FormInput.vue';
 import FormTextarea from './reusable/FormTextarea.vue';
 export default {
 	props: ['showModal', 'modal', 'categories'],
 	components: { Button, FormInput, FormTextarea },
-	data() {
-		return {};
-	},
-	mounted() {
-		feather.replace();
-	},
-	updated() {
-		feather.replace();
-	},
-	methods: {},
 };
 </script>
 
@@ -46,7 +35,7 @@ export default {
 								<h5
 									class="text-primary-dark dark:text-primary-light text-xl"
 								>
-									What project are you looking for?
+								Заполните поля для обработки вашего заказа
 								</h5>
 								<button
 									class="px-4 text-primary-dark dark:text-primary-light"
@@ -58,7 +47,7 @@ export default {
 							<div class="modal-body p-5 w-full h-full">
 								<form class="max-w-xl m-4 text-left">
 									<FormInput
-										label="Full Name"
+										label="Полное имя"
 										inputIdentifier="name"
 										class="mb-2"
 									/>
@@ -68,7 +57,7 @@ export default {
 										inputType="email"
 									/>
 
-									<div class="mt-6 mb-4">
+									<!-- <div class="mt-6 mb-4">
 										<label
 											class="block mb-2 text-lg text-primary-dark dark:text-primary-light"
 											for="project"
@@ -90,16 +79,17 @@ export default {
 												{{ category.name }}
 											</option>
 										</select>
-									</div>
+									</div> -->
 
 									<FormTextarea
-										label="Details"
+										label="Сообщение для заказа"
 										textareaIdentifier="details"
+										class="mt-2"
 									/>
 
 									<div class="mt-7 pb-4 sm:pb-1">
 										<Button
-											title="Send Request"
+											title="Отправить"
 											class="px-4 sm:px-6 py-2 sm:py-2.5 text-white bg-indigo-500 hover:bg-indigo-600 rounded-md focus:ring-1 focus:ring-indigo-900 duration-500"
 											type="submit"
 											aria-label="Submit Request"
@@ -111,7 +101,7 @@ export default {
 								class="modal-footer mt-2 sm:mt-0 py-5 px-8 border0-t text-right"
 							>
 								<Button
-									title="Close"
+									title="Закрыть"
 									class="px-4 sm:px-6 py-2 bg-gray-600 text-primary-light hover:bg-ternary-dark dark:bg-gray-200 dark:text-secondary-dark dark:hover:bg-primary-light rounded-md focus:ring-1 focus:ring-indigo-900 duration-500"
 									@click="showModal()"
 									aria-label="Close Modal"

@@ -1,6 +1,10 @@
 <script>
 export default {
-	props: ['singleProjectHeader'],
+	props: {
+		title: {
+			type: String,
+		}
+	},
 };
 </script>
 
@@ -10,9 +14,9 @@ export default {
 		<p
 			class="font-general-medium text-left text-3xl sm:text-4xl font-bold text-primary-dark dark:text-primary-light mt-14 sm:mt-20 mb-7"
 		>
-			{{ singleProjectHeader.singleProjectTitle }}
+			{{ title }}
 		</p>
-		<div class="flex">
+		<!-- <div class="flex">
 			<div class="flex items-center mr-10">
 				<i
 					data-feather="clock"
@@ -33,6 +37,6 @@ export default {
 					>{{ singleProjectHeader.singleProjectTag }}</span
 				>
 			</div>
-		</div>
+		</div> -->
 	</div>
 </template>

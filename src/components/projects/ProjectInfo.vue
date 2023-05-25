@@ -1,14 +1,26 @@
 <script>
-import feather from 'feather-icons';
+// import { projectHeadings } from '../../data/projects'
 
 export default {
-	props: ['projectInfo'],
-
-	mounted() {
-		feather.replace();
-	},
-	updated() {
-		feather.replace();
+	props: {
+		projectInfo: {
+			type: Object,
+		},
+		projectHeadings: {
+			type: Object,
+		},
+		projectTechnologies: {
+			type: Array,
+		},
+		projectObjective: {
+			type: String,
+		},
+		projectDetails: {
+			type: Array,
+		},
+		projectSharings: {
+			type: Array,
+		}
 	},
 };
 </script>
@@ -18,7 +30,7 @@ export default {
 		<!-- Single project left section details -->
 		<div class="w-full sm:w-1/3 text-left">
 			<!-- Single project client details -->
-			<div class="mb-7">
+			<!-- <div class="mb-7">
 				<p
 					class="font-general-medium text-2xl text-secondary-dark dark:text-secondary-light mb-2"
 				>
@@ -43,19 +55,19 @@ export default {
 						>
 					</li>
 				</ul>
-			</div>
+			</div> -->
 
 			<!-- Single project objectives -->
 			<div class="mb-7">
 				<p
 					class="font-general-medium text-2xl text-ternary-dark dark:text-ternary-light mb-2"
 				>
-					{{ projectInfo.objectivesHeading }}
+					{{ projectHeadings.objectivesHeading }}
 				</p>
 				<p
 					class="font-general-regular text-primary-dark dark:text-ternary-light"
 				>
-					{{ projectInfo.objectivesDetails }}
+					{{ projectObjective }}
 				</p>
 			</div>
 
@@ -64,12 +76,12 @@ export default {
 				<p
 					class="font-general-medium text-2xl text-ternary-dark dark:text-ternary-light mb-2"
 				>
-					{{ projectInfo.technologies[0].title }}
+					{{ projectHeadings.technologiesHeading }}
 				</p>
 				<p
 					class="font-general-regular text-primary-dark dark:text-ternary-light"
 				>
-					{{ projectInfo.technologies[0].techs.join(', ') }}
+					{{ projectTechnologies.join(', ') }}
 				</p>
 			</div>
 
@@ -78,21 +90,23 @@ export default {
 				<p
 					class="font-general-medium text-2xl text-ternary-dark dark:text-ternary-light mb-2"
 				>
-					{{ projectInfo.socialSharingsHeading }}
+					{{ projectHeadings.socialSharingsHeading }}
 				</p>
 				<div class="flex items-center gap-3 mt-5">
 					<a
-						v-for="social in projectInfo.socialSharings"
+						v-for="social in projectSharings"
 						:key="social.id"
 						:href="social.url"
 						target="__blank"
 						aria-label="Share Project"
 						class="bg-ternary-light dark:bg-ternary-dark text-gray-400 hover:text-primary-dark dark:hover:text-primary-light p-2 rounded-lg shadow-sm duration-500"
-						><i
+						>
+						<!-- <i
 							:data-feather="social.icon"
 							class="w-4 lg:w-5 h-4 lg:h-5"
-						></i
-					></a>
+						></i> -->
+						<font-awesome-icon :icon="['fab', `${social.icon}`]" size="2xl" />
+					</a>
 				</div>
 			</div>
 		</div>
@@ -102,10 +116,10 @@ export default {
 			<p
 				class="font-general-medium text-primary-dark dark:text-primary-light text-2xl font-bold mb-7"
 			>
-				{{ projectInfo.projectDetailsHeading }}
+				{{ projectHeadings.projectDetailsHeading }}
 			</p>
 			<p
-				v-for="projectDetail in projectInfo.projectDetails"
+				v-for="projectDetail in projectDetails"
 				:key="projectDetail.id"
 				class="font-general-regular mb-5 text-lg text-ternary-dark dark:text-ternary-light"
 			>

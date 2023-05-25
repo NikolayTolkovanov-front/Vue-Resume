@@ -1,15 +1,17 @@
 <script>
-import feather from 'feather-icons';
-import ProjectsFilter from './ProjectsFilter.vue';
+// import ProjectsFilter from './ProjectsFilter.vue';
 import ProjectSingle from './ProjectSingle.vue';
-import projects from '../../data/projects';
+import { projects } from '../../data/projects';
 
 export default {
-	components: { ProjectSingle, ProjectsFilter },
+	components: { 
+		ProjectSingle,
+		// ProjectsFilter,
+	},
 	data: () => {
 		return {
 			projects,
-			projectsHeading: 'Projects Portfolio',
+			projectsHeading: 'Портфолио проектов',
 			selectedCategory: '',
 			searchProject: '',
 		};
@@ -42,9 +44,6 @@ export default {
 			return this.projects.filter((el) => el.title.match(project));
 		},
 	},
-	mounted() {
-		feather.replace();
-	},
 };
 </script>
 
@@ -62,7 +61,7 @@ export default {
 
 		<!-- Filter and search projects -->
 		<div class="mt-10 sm:mt-10">
-			<h3
+			<!-- <h3
 				class="font-general-regular
 					text-center text-secondary-dark
 					dark:text-ternary-light
@@ -72,8 +71,8 @@ export default {
 					mb-4
 				"
 			>
-				Search projects by title or filter by category
-			</h3>
+				Поиск проектов
+			</h3> -->
 			<div
 				class="
 					flex
@@ -85,7 +84,8 @@ export default {
 				"
 			>
 				<div class="flex justify-between gap-2">
-					<span
+					<label
+						for="search-project"
 						class="
 							hidden
 							sm:block
@@ -97,11 +97,8 @@ export default {
 							cursor-pointer
 							"
 					>
-						<i
-							data-feather="search"
-							class="text-ternary-dark dark:text-ternary-light"
-						></i>
-					</span>
+						<font-awesome-icon icon="fa-solid fa-magnifying-glass" class="text-ternary-dark dark:text-ternary-light" size="xl" />
+					</label>
 					<input
 						v-model="searchProject"
 						class="font-general-medium
@@ -119,15 +116,15 @@ export default {
 						text-primary-dark
 						dark:text-ternary-light
 						"
-						id="name"
-						name="name"
+						id="search-project"
+						name="search-project"
 						type="search"
 						required=""
 						placeholder="Search Projects"
-						aria-label="Name"
+						aria-label="search project"
 					/>
 				</div>
-				<ProjectsFilter @filter="selectedCategory = $event" />
+				<!-- <ProjectsFilter @filter="selectedCategory = $event" /> -->
 			</div>
 		</div>
 

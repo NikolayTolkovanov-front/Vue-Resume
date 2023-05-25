@@ -1,6 +1,10 @@
 <script>
 export default {
-	props: ['projectImages'],
+	props: {
+		projectImages: {
+			type: Array,
+		}
+	},
 };
 </script>
 
