@@ -9,7 +9,7 @@ export default {
 			type: String,
 			default: '',
 		},
-		val: {
+		modelValue: {
 			type: [String, Number],
 			default: '',
 		},
@@ -17,6 +17,19 @@ export default {
 			type: String,
 			default: 'text',
 		},
+	},
+	emits: ['update:modelValue'],
+
+	data() {
+		return {
+			input: ""
+		}
+	},
+
+	methods: {
+		emitInputValue(value) {
+			this.$emit('update:input', value)
+		}
 	},
 };
 </script>
@@ -34,10 +47,10 @@ export default {
 			:name="inputIdentifier"
 			:placeholder="label"
 			:aria-label="inputIdentifier"
-			:value="val"
 			:type="inputType"
 			v-bind="$attrs"
-			@input="$emit('update:val', $event.target.value)"
+			:value="modelValue"
+			@input="$emit('update:modelValue', $event.target.value)"
 			required
 		/>
 	</div>
