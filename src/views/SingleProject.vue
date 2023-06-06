@@ -5,7 +5,7 @@ import ProjectInfo from "@/components/projects/ProjectInfo.vue";
 // import ProjectRelatedProjects from "@/components/projects/ProjectRelatedProjects.vue";
 
 import { getProjectById, getProjectHeadings } from "@/data/projects";
-import { getSocialSharings } from "@/data/socialLinks"
+import { getSocialSharings } from "@/data/socialLinks";
 
 export default {
   name: "SingleProject",
@@ -23,44 +23,45 @@ export default {
   data: () => {
     return {
       currentProject: {},
+      projectSharings : [],
+      projectHeadings: {},
       projectTitle: "",
       projectImages: [],
-      projectHeadings: {},
-      projectObjective: "",
       projectTechnologies: [],
+      projectObjective: "",
       projectDetails: [],
 
-      relatedProject: {
-        relatedProjectsHeading: "Related Projects",
-        relatedProjects: [
-          {
-            id: 1,
-            title: "Mobile UI",
-            img: require("@/assets/images/mobile-project-1.jpg"),
-          },
-          {
-            id: 2,
-            title: "Web Application",
-            img: require("@/assets/images/web-project-1.jpg"),
-          },
-          {
-            id: 3,
-            title: "UI Design",
-            img: require("@/assets/images/ui-project-2.jpg"),
-          },
-          {
-            id: 4,
-            title: "Kabul Mobile App UI",
-            img: require("@/assets/images/mobile-project-2.jpg"),
-          },
-        ],
-      },
+      // relatedProject: {
+      //   relatedProjectsHeading: "Related Projects",
+      //   relatedProjects: [
+      //     {
+      //       id: 1,
+      //       title: "Mobile UI",
+      //       img: require("@/assets/images/mobile-project-1.jpg"),
+      //     },
+      //     {
+      //       id: 2,
+      //       title: "Web Application",
+      //       img: require("@/assets/images/web-project-1.jpg"),
+      //     },
+      //     {
+      //       id: 3,
+      //       title: "UI Design",
+      //       img: require("@/assets/images/ui-project-2.jpg"),
+      //     },
+      //     {
+      //       id: 4,
+      //       title: "Kabul Mobile App UI",
+      //       img: require("@/assets/images/mobile-project-2.jpg"),
+      //     },
+      //   ],
+      // },
     };
   },
   mounted() {
     this.currentProject = getProjectById(this.projectId);
     this.projectHeadings = getProjectHeadings();
-		this.projectSharings = getSocialSharings();
+    this.projectSharings = getSocialSharings();
 
     this.projectTitle = this.currentProject.title;
     this.projectImages = this.currentProject.projectImages;
@@ -81,12 +82,11 @@ export default {
 
     <!-- Project information -->
     <ProjectInfo
-      :projectInfo="projectInfo"
       :projectHeadings="projectHeadings"
       :projectTechnologies="projectTechnologies"
       :projectObjective="projectObjective"
-			:projectDetails="projectDetails"
-			:projectSharings="projectSharings"
+      :projectDetails="projectDetails"
+      :projectSharings="projectSharings"
     />
 
     <!-- Project related projects -->

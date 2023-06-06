@@ -3,9 +3,6 @@
 
 export default {
   props: {
-    projectInfo: {
-      type: Object,
-    },
     projectHeadings: {
       type: Object,
     },
@@ -20,6 +17,28 @@ export default {
     },
     projectSharings: {
       type: Array,
+    },
+  },
+
+  data() {
+    return {
+      currentURL: ""
+    }
+  },
+
+  mounted() {
+    this.currentURL = window.location.href
+  },
+
+  computed: {
+    encodedCurrentURL() {
+      return encodeURIComponent(this.currentURL)
+    }
+  },
+
+  methods: {
+    getSharedLink(url) {
+      return `${url}${this.encodedCurrentURL}`
     },
   },
 };
@@ -96,7 +115,7 @@ export default {
           <a
             v-for="social in projectSharings"
             :key="social.id"
-            :href="social.url"
+            :href="getSharedLink(social.url)"
             target="__blank"
             aria-label="Share Project"
             class="bg-ternary-light dark:bg-ternary-dark text-gray-400 hover:text-primary-dark dark:hover:text-primary-light p-2 rounded-lg shadow-sm duration-500"

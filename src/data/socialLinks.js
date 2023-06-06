@@ -24,19 +24,19 @@ const socialSharings = [
 		id: 1,
 		name: 'Telegram',
 		icon: 'telegram',
-		url: 'https://t.me/zorg210780/',
+		url: 'https://telegram.me/share/url?url=',
 	},
 	{
 		id: 2,
-		name: 'GitHub',
-		icon: 'github',
-		url: 'https://github.com/NikolayTolkovanov-front',
+		name: 'Facebook',
+		icon: 'facebook',
+		url: 'https://www.facebook.com/sharer/sharer.php?u=',
 	},
 	{
 		id: 3,
 		name: 'Vkontakte',
 		icon: 'vk',
-		url: 'https://vk.com/ntolkovanov',
+		url: 'https://vk.com/share.php?url=',
 	},
 ]
 

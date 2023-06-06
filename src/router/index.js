@@ -61,6 +61,21 @@ const routes = [
 			title: 'Nick - Contact',
 		},
 	},
+	{
+		path: '/:pathMatch(.*)*',
+		name: 'NotFound',
+		props: true,
+		// route level code-splitting
+		// this generates a separate chunk (projects.[hash].js) for this route
+		// which is lazy-loaded when the route is visited.
+		component: () =>
+			import(
+				/* webpackChunkName: "projects" */ '../views/NotFound.vue'
+			),
+		meta: {
+			title: 'Not Found',
+		},
+	},
 ];
 
 const router = createRouter({

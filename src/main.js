@@ -4,28 +4,25 @@ import router from './router';
 import './assets/css/app.css';
 import BackToTop from 'vue-backtotop';
 
-/* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core'
-
-/* import font awesome icon component */
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-/* import specific icons */
+import {
+	faCircleDown,
+	faMagnifyingGlass,
+	faLocationDot,
+	faEnvelope,
+	faPhone,
+	faSun,
+	faMoon,
+	faXmark,
+} from '@fortawesome/free-solid-svg-icons'
 
-import { faCircleDown } from '@fortawesome/free-solid-svg-icons'
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import { faTelegram } from '@fortawesome/free-brands-svg-icons';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faVk } from '@fortawesome/free-brands-svg-icons';
-import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { faPhone } from '@fortawesome/free-solid-svg-icons';
-import { faSun } from '@fortawesome/free-solid-svg-icons';
-import { faMoon } from '@fortawesome/free-solid-svg-icons';
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faFacebook, faTelegram, faGithub, faVk } from '@fortawesome/free-brands-svg-icons';
+
 
 /* add icons to the library */
-library.add(faCircleDown, faMagnifyingGlass, faTelegram, faGithub, faVk, faLocationDot, faEnvelope, faPhone,faSun, faMoon, faXmark)
+library.add(faCircleDown, faMagnifyingGlass, faTelegram, faGithub, faVk, faFacebook, faLocationDot, faEnvelope, faPhone,faSun, faMoon, faXmark)
 
 createApp(App)
 	.use(router)
