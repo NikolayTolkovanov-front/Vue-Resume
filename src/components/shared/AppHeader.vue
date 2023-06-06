@@ -83,14 +83,18 @@ export default {
             ><img
               v-if="theme === 'light'"
               src="@/assets/images/logo-dark.svg"
-              class="w-36"
+              class="w-20"
               alt="Dark Logo"
+              width="80"
+              height="80"
             />
             <img
               v-else
               src="@/assets/images/logo-light.svg"
-              class="w-36"
+              class="w-20"
               alt="Light Logo"
+              width="80"
+              height="80"
             />
           </router-link>
         </div>
