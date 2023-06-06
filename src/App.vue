@@ -30,9 +30,9 @@ export default {
 			visibleoffset="500"
 			right="30px"
 			bottom="20px"
-			class="shadow-lg"
+			class="shadow-lg w-10 h-10 flex items-center justify-center rounded-full"
 		>
-			<i data-feather="chevron-up"></i>
+			<font-awesome-icon icon="fa-solid fa-arrow-up" size="xl" />
 		</back-to-top>
 
 		<!-- App footer -->
@@ -49,14 +49,11 @@ export default {
 }
 
 .vue-back-to-top {
-	@apply p-2 bg-indigo-500 hover:bg-indigo-600 text-white transition
+	@apply bg-indigo-500 hover:bg-indigo-600 text-white transition
         duration-500
         ease-in-out
         transform
         hover:-translate-y-1 hover:scale-110;
-	border-radius: 50%;
-	font-size: 22px;
-	line-height: 22px;
 }
 
 .fade-enter-active {

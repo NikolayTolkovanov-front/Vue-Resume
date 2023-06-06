@@ -16,13 +16,14 @@ import {
 	faSun,
 	faMoon,
 	faXmark,
+	faArrowUp,
 } from '@fortawesome/free-solid-svg-icons'
 
 import { faFacebook, faTelegram, faGithub, faVk } from '@fortawesome/free-brands-svg-icons';
 
 
 /* add icons to the library */
-library.add(faCircleDown, faMagnifyingGlass, faTelegram, faGithub, faVk, faFacebook, faLocationDot, faEnvelope, faPhone,faSun, faMoon, faXmark)
+library.add(faCircleDown, faMagnifyingGlass, faTelegram, faGithub, faVk, faFacebook, faLocationDot, faEnvelope, faPhone,faSun, faMoon, faXmark, faArrowUp)
 
 createApp(App)
 	.use(router)
