@@ -30,14 +30,14 @@ export default {
       class="leading-loose max-w-xl m-4 p-7 bg-secondary-light dark:bg-secondary-dark rounded-xl shadow-xl text-left"
     >
       <p
-        class="font-general-medium text-primary-dark dark:text-primary-light text-2xl mb-8"
+        class="font-roboto-medium text-primary-dark dark:text-primary-light text-2xl mb-8"
       >
         Заполните поля для обработки вашего заказа
       </p>
       <form
         method="post"
         @submit.prevent="addUserInfo"
-        class="font-general-regular space-y-7"
+        class="font-roboto-regular space-y-7"
       >
         <FormInput
           v-model="userName"
