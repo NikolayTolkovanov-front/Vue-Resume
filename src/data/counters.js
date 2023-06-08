@@ -1,0 +1,32 @@
+export const aboutCounter = [
+  {
+    id: 1,
+    title: "Года опыта работы",
+    startValue: 0,
+    endValue: 3,
+    duration: 1,
+    autoinit: true,
+    suffix: "+",
+    label: "About Status Counter",
+  },
+  {
+    id: 2,
+    title: "Позитивных отзывов",
+    startValue: 0,
+    endValue: 92,
+    duration: 1,
+    autoinit: true,
+    suffix: "%",
+    label: "About Status Counter",
+  },
+  {
+    id: 3,
+    title: "Завершённых проектов",
+    startValue: 0,
+    endValue: 10,
+    duration: 1,
+    autoinit: true,
+    suffix: "",
+    label: "About Status Counter",
+  },
+];
