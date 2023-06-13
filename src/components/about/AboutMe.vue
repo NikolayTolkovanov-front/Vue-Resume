@@ -1,10 +1,12 @@
 <script>
-import aboutMeData from "../../data/about";
+import aboutMeData from "@/data/about";
 
 export default {
-  setup() {
+  data() {
     return {
       aboutMeData,
+      aboutMeHeading: "Обо мне",
+      skillsHeading: "Навыки"
     };
   },
 };
@@ -20,9 +22,9 @@ export default {
     <!-- About details -->
     <div class="w-full sm:w-3/4 text-left">
       <p
-        class="font-roboto-bold text-xl text-ternary-dark dark:text-ternary-light font-semibold mb-2"
+        class="font-roboto-bold text-2xl text-ternary-dark dark:text-ternary-light font-semibold mb-2"
       >
-        Обо мне
+      {{ aboutMeHeading }}
       </p>
       <p
         class="font-roboto-regular mb-4 text-ternary-dark dark:text-ternary-light text-lg"
@@ -31,9 +33,9 @@ export default {
       </p>
 
       <p
-        class="font-roboto-bold text-xl text-ternary-dark dark:text-ternary-light font-semibold mb-2"
+        class="font-roboto-bold text-2xl text-ternary-dark dark:text-ternary-light font-semibold mb-2"
       >
-        Навыки
+        {{ skillsHeading }}
       </p>
       <ul class="font-roboto-regular list-disc list-inside">
         <li

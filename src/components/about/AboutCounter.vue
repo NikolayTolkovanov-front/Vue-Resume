@@ -1,20 +1,16 @@
 <script>
 import counter from "vue3-autocounter";
-import { aboutCounter } from "../../data/counters"
+import { aboutCounter } from "@/data/counters"
 
 export default {
   components: {
     counter,
   },
-  data: () => {
+  data() {
     return {
-      aboutCounter: []
+      aboutCounter
     };
   },
-
-  mounted() {
-    this.aboutCounter = aboutCounter
-  }
 };
 </script>
 

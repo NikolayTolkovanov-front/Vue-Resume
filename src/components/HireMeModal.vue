@@ -1,17 +1,26 @@
 <script>
-import Button from "./reusable/Button.vue";
-import FormInput from "./reusable/FormInput.vue";
-import FormTextarea from "./reusable/FormTextarea.vue";
-import { addBid } from "../api/api";
+import Button from "@/components/reusable/Button.vue";
+import FormInput from "@/components/reusable/FormInput.vue";
+import FormTextarea from "@/components/reusable/FormTextarea.vue";
+import { addBid } from "@/api/api";
+import { contactFormInfo } from "@/data/forms";
 
 export default {
-  props: ["showModal", "modal", "categories"],
+  props: {
+    showModal: {
+      type: Function
+    },
+    modal: {
+      type: Boolean
+    },
+  },
   components: { Button, FormInput, FormTextarea },
   data() {
     return {
       userName: "",
       userEmail: "",
       userDescription: "",
+      contactFormInfo,
     };
   },
   methods: {
@@ -45,7 +54,7 @@ export default {
                 class="modal-header flex justify-between gap-10 p-5 border-b border-ternary-light dark:border-ternary-dark"
               >
                 <h5 class="text-primary-dark dark:text-primary-light text-xl">
-                  Заполните поля для обработки вашего заказа
+                  {{ contactFormInfo.title }}
                 </h5>
                 <button
                   class="px-4 text-primary-dark dark:text-primary-light"
@@ -61,54 +70,30 @@ export default {
                 >
                   <FormInput
                     v-model="userName"
-                    label="Полное имя"
+                    :label="contactFormInfo.userName"
                     inputIdentifier="name"
                     class="mb-2"
                   />
                   <FormInput
                     v-model="userEmail"
-                    label="Email"
+                    :label="contactFormInfo.email"
                     inputIdentifier="email"
                     inputType="email"
                   />
 
-                  <!-- <div class="mt-6 mb-4">
-										<label
-											class="block mb-2 text-lg text-primary-dark dark:text-primary-light"
-											for="project"
-											>Project Type</label
-										>
-										<select
-											class="w-full px-5 py-3 border-1 border-gray-200 dark:border-secondary-dark rounded-md text-md bg-secondary-light dark:bg-ternary-dark text-primary-dark dark:text-ternary-light"
-											id="project"
-											name="project"
-											type="text"
-											required=""
-											aria-label="Project Category"
-										>
-											<option
-												v-for="category in categories"
-												:key="category.id"
-												:value="category.value"
-											>
-												{{ category.name }}
-											</option>
-										</select>
-									</div> -->
-
                   <FormTextarea
                     v-model="userDescription"
-                    label="Сообщение для заказа"
+                    :label="contactFormInfo.description"
                     textareaIdentifier="details"
                     class="mt-2"
                   />
 
                   <div class="mt-7 pb-4 sm:pb-1">
                     <Button
-                      title="Отправить"
+                      :title="contactFormInfo.submitButton"
                       class="px-4 sm:px-6 py-2 sm:py-2.5 text-white bg-indigo-500 hover:bg-indigo-600 rounded-md focus:ring-1 focus:ring-indigo-900 duration-500"
                       type="submit"
-                      aria-label="Submit Request"
+                      :aria-label="contactFormInfo.submitButton"
                     />
                   </div>
                 </form>

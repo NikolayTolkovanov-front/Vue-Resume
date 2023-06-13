@@ -1,6 +1,26 @@
 <script>
+import { projects } from '@/data/projects';
+
 export default {
-  props: ["relatedProject"],
+  props: {
+    projectCategory: {
+      type: String
+    }
+  },
+
+  data() {
+    return {
+      projects,
+      relatedProjectsTitle: "Похожие проекты"
+    }
+  },
+
+  computed: {
+    filteredProjects() {
+      return this.projects.filter((project) => project.category === this.projectCategory)
+    }
+  }
+
 };
 </script>
 
@@ -11,15 +31,15 @@ export default {
     <p
       class="font-roboto-regular text-primary-dark dark:text-primary-light text-3xl font-bold mb-10 sm:mb-14 text-left"
     >
-      {{ relatedProject.relatedProjectsHeading }}
+      {{ relatedProjectsTitle }}
     </p>
 
     <div class="grid grid-cols-1 sm:grid-cols-4 gap-10">
-      <div v-for="item in relatedProject.relatedProjects" :key="item.id">
+      <div v-for="project in filteredProjects" :key="project.id">
         <img
-          :src="item.img"
+          :src="project.img"
           class="rounded-xl cursor-pointer"
-          :alt="item.title"
+          :alt="project.title"
         />
       </div>
     </div>

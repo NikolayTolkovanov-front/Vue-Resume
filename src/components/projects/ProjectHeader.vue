@@ -16,27 +16,5 @@ export default {
     >
       {{ title }}
     </p>
-    <!-- <div class="flex">
-			<div class="flex items-center mr-10">
-				<i
-					data-feather="clock"
-					class="w-4 h-4 text-ternary-dark dark:text-ternary-light"
-				></i>
-				<span
-					class="font-roboto-medium ml-2 leading-none text-primary-dark dark:text-primary-light"
-					>{{ singleProjectHeader.singleProjectDate }}</span
-				>
-			</div>
-			<div class="flex items-center">
-				<i
-					data-feather="tag"
-					class="w-4 h-4 text-ternary-dark dark:text-ternary-light"
-				></i>
-				<span
-					class="font-roboto-medium ml-2 leading-none text-primary-dark dark:text-primary-light"
-					>{{ singleProjectHeader.singleProjectTag }}</span
-				>
-			</div>
-		</div> -->
   </div>
 </template>

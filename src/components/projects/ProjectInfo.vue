@@ -1,6 +1,4 @@
 <script>
-// import { projectHeadings } from '../../data/projects'
-
 export default {
   props: {
     projectHeadings: {
@@ -48,33 +46,6 @@ export default {
   <div class="block sm:flex gap-0 sm:gap-10 mt-14">
     <!-- Single project left section details -->
     <div class="w-full sm:w-1/3 text-left">
-      <!-- Single project client details -->
-      <!-- <div class="mb-7">
-				<p
-					class="font-roboto-medium text-2xl text-secondary-dark dark:text-secondary-light mb-2"
-				>
-					{{ projectInfo.clientHeading }}
-				</p>
-				<ul class="leading-loose">
-					<li
-						v-for="info in projectInfo.companyInfos"
-						:key="info"
-						class="font-roboto-regular text-ternary-dark dark:text-ternary-light"
-					>
-						<span>{{ info.title }}: </span>
-						<a
-							href="#"
-							:class="
-								info.title == 'Website' || info.title == 'Phone'
-									? 'hover:underline cursor-pointer'
-									: ''
-							"
-							aria-label="Project Website and Phone"
-							>{{ info.details }}</a
-						>
-					</li>
-				</ul>
-			</div> -->
 
       <!-- Single project objectives -->
       <div class="mb-7">
@@ -120,10 +91,6 @@ export default {
             aria-label="Share Project"
             class="bg-ternary-light dark:bg-ternary-dark text-gray-400 hover:text-primary-dark dark:hover:text-primary-light p-2 rounded-lg shadow-sm duration-500"
           >
-            <!-- <i
-							:data-feather="social.icon"
-							class="w-4 lg:w-5 h-4 lg:h-5"
-						></i> -->
             <font-awesome-icon :icon="['fab', `${social.icon}`]" size="2xl" />
           </a>
         </div>

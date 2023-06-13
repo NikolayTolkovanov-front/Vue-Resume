@@ -1,10 +1,33 @@
+<script>
+import contactInfo from "@/data/contacts"
+
+export default {
+	name: 'ContactDetails',
+  data() {
+    return {
+      contactInfo,
+    }
+  },
+
+  computed: {
+    formattedPhone() {
+      return `tel:${this.contactInfo.phone?.standart}`
+    },
+
+    formattedMail() {
+      return `mailto:${this.contactInfo.mail}`
+    }
+  }
+};
+</script>
+
 <template>
   <div class="w-full md:w-1/2">
     <div class="text-left max-w-xl px-6">
       <h2
         class="font-roboto-medium text-2xl text-primary-dark dark:text-primary-light mt-12 mb-8"
       >
-        Связаться со мной
+        {{ contactInfo.title }}
       </h2>
       <ul class="font-roboto-regular">
         <li class="flex">
@@ -14,7 +37,7 @@
             size="xl"
           />
           <p class="text-lg mb-4 text-ternary-dark dark:text-ternary-light">
-            г.Волгоград, Россия
+            {{ contactInfo.city }}
           </p>
         </li>
         <li class="flex">
@@ -25,8 +48,8 @@
           />
           <a
             class="text-lg mb-4 text-ternary-dark dark:text-ternary-light hover:underline"
-            href="tel:+79616654412"
-            >+7 961 665 44 12</a
+            :href="formattedPhone"
+            >{{ contactInfo.phone?.withSpaces }}</a
           >
         </li>
         <li class="flex">
@@ -37,8 +60,8 @@
           />
           <a
             class="text-lg mb-4 text-ternary-dark dark:text-ternary-light hover:underline"
-            href="mailto:tnrvlg@gmail.com"
-            >tnrvlg@gmail.com</a
+            :href="formattedMail"
+            >{{ contactInfo.mail }}</a
           >
         </li>
       </ul>

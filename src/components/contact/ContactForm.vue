@@ -1,8 +1,9 @@
 <script>
-import Button from "../reusable/Button.vue";
-import FormInput from "../reusable/FormInput.vue";
-import FormTextarea from "../reusable/FormTextarea.vue";
-import { addBid } from "../../api/api";
+import Button from "@/components/reusable/Button.vue";
+import FormInput from "@/components/reusable/FormInput.vue";
+import FormTextarea from "@/components/reusable/FormTextarea.vue";
+import { addBid } from "@/api/api";
+import { contactFormInfo } from "@/data/forms";
 
 export default {
   components: { Button, FormInput, FormTextarea },
@@ -11,6 +12,8 @@ export default {
       userName: "",
       userEmail: "",
       userDescription: "",
+      category: "",
+      contactFormInfo,
     };
   },
   methods: {
@@ -32,7 +35,7 @@ export default {
       <p
         class="font-roboto-medium text-primary-dark dark:text-primary-light text-2xl mb-8"
       >
-        Заполните поля для обработки вашего заказа
+        {{ contactFormInfo.title }}
       </p>
       <form
         method="post"
@@ -41,24 +44,24 @@ export default {
       >
         <FormInput
           v-model="userName"
-          label="Полное имя"
+          :label="contactFormInfo.userName"
           inputIdentifier="name"
         />
         <FormInput
           v-model="userEmail"
-          label="Email"
+          :label="contactFormInfo.email"
           inputIdentifier="email"
           inputType="email"
         />
         <FormTextarea
           v-model="userDescription"
-          label="Описание задачи"
+          :label="contactFormInfo.description"
           textareaIdentifier="message"
         />
 
         <div>
           <Button
-            title="Отправить"
+            :title="contactFormInfo.submitButton"
             class="px-4 py-2.5 text-white tracking-wider bg-indigo-500 hover:bg-indigo-600 focus:ring-1 focus:ring-indigo-900 rounded-lg duration-500"
             type="submit"
             aria-label="Send Message"

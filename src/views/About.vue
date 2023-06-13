@@ -8,9 +8,6 @@ export default {
 		AboutMe,
 		AboutCounter,
 	},
-	data: () => {
-		return {};
-	},
 };
 </script>
 

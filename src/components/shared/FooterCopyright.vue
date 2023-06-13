@@ -1,6 +1,6 @@
 <script>
 export default {
-  data: () => {
+  data() {
     return {
       copyrightDate: new Date().getFullYear(),
       projectName: "Vue.js & Tailwind CSS Portfolio",
@@ -15,7 +15,8 @@ export default {
     <div
       class="font-roboto-regular text-lg text-ternary-dark dark:text-ternary-light"
     >
-      &copy; {{ copyrightDate }}. Developed by
+    &copy; {{ copyrightDate }}. Developed by
+
       <a
         href="https://vk.com/ntolkovanov"
         target="__blank"

@@ -1,17 +1,19 @@
 <script>
-// import ProjectsFilter from './ProjectsFilter.vue';
-import ProjectSingle from "./ProjectSingle.vue";
-import { projects } from "../../data/projects";
+import ProjectsFilter from '@/components/projects/ProjectsFilter.vue';
+import ProjectSingle from "@/components/projects/ProjectSingle.vue";
+import { projects, projectCategories } from "@/data/projects";
 
 export default {
   components: {
     ProjectSingle,
-    // ProjectsFilter,
+    ProjectsFilter,
   },
   data: () => {
     return {
       projects,
+      projectCategories,
       projectsHeading: "Портфолио проектов",
+      searchHeading: "Поиск проектов по названию или категории",
       selectedCategory: "",
       searchProject: "",
     };
@@ -26,14 +28,18 @@ export default {
       }
       return this.projects;
     },
+
+    normalizedCategories() {
+      return this.projectCategories.map((category) => category.title)
+    }
   },
   methods: {
     // Filter projects by category
     filterProjectsByCategory() {
-      return this.projects.filter((item) => {
+      return this.projects.filter((project) => {
         let category =
-          item.category.charAt(0).toUpperCase() + item.category.slice(1);
-        console.log(category);
+          project.category.charAt(0).toUpperCase() + project.category.slice(1);
+
         return category.includes(this.selectedCategory);
       });
     },
@@ -60,7 +66,7 @@ export default {
 
     <!-- Filter and search projects -->
     <div class="mt-10 sm:mt-10">
-      <!-- <h3
+      <h3
 				class="font-roboto-regular
 					text-center text-secondary-dark
 					dark:text-ternary-light
@@ -70,8 +76,8 @@ export default {
 					mb-4
 				"
 			>
-				Поиск проектов
-			</h3> -->
+				{{ searchHeading }}
+			</h3>
       <div
         class="flex justify-between border-b border-primary-light dark:border-secondary-dark pb-3 gap-2"
       >
@@ -93,11 +99,11 @@ export default {
             name="search-project"
             type="search"
             required=""
-            placeholder="Search Projects"
+            placeholder="Найти проект"
             aria-label="search project"
           />
         </div>
-        <!-- <ProjectsFilter @filter="selectedCategory = $event" /> -->
+        <ProjectsFilter :select="searchProject" :selectOptions="normalizedCategories" @filter="selectedCategory = $event" />
       </div>
     </div>
 

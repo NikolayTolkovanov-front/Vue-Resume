@@ -1,8 +1,9 @@
 <script>
-import ThemeSwitcher from "../ThemeSwitcher";
-import HireMeModal from "../HireMeModal.vue";
-import AppHeaderLinks from "./AppHeaderLinks.vue";
-import Button from "../reusable/Button.vue";
+import ThemeSwitcher from "@/components/ThemeSwitcher";
+import HireMeModal from "@/components/HireMeModal.vue";
+import AppHeaderLinks from "@/components/shared/AppHeaderLinks.vue";
+import Button from "@/components/reusable/Button.vue";
+import { projectCategories } from "@/data/projects";
 
 export default {
   components: {
@@ -16,28 +17,7 @@ export default {
       isOpen: false,
       theme: "",
       modal: false,
-      categories: [
-        {
-          id: 1,
-          value: "web",
-          name: "Web Application",
-        },
-        {
-          id: 2,
-          value: "mobile",
-          name: "Mobile Application",
-        },
-        {
-          id: 3,
-          value: "ui-ux",
-          name: "UI/UX Design",
-        },
-        {
-          id: 4,
-          value: "branding",
-          name: "Branding & Anim",
-        },
-      ],
+      categories: []
     };
   },
 
@@ -46,6 +26,7 @@ export default {
   },
   mounted() {
     this.theme = localStorage.getItem("theme") || "light";
+    this.categories = projectCategories
   },
   methods: {
     updateTheme(theme) {
@@ -165,7 +146,6 @@ export default {
     <HireMeModal
       :showModal="showModal"
       :modal="modal"
-      :categories="categories"
       aria-modal="Hire Me Modal"
     />
   </nav>

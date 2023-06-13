@@ -1,12 +1,13 @@
 <script>
-import FooterCopyright from "./FooterCopyright.vue";
-import { socialLinks } from "../../data/socialLinks";
+import FooterCopyright from "@/components/shared/FooterCopyright.vue";
+import { socialLinks } from "@/data/socialLinks";
 
 export default {
   components: { FooterCopyright },
   data() {
     return {
       socials: socialLinks,
+      socialHeading: "Меня можно найти в социальных сетях",
     };
   },
 };
@@ -22,7 +23,7 @@ export default {
         <p
           class="font-roboto-bold text-3xl sm:text-4xl font-semibold text-primary-dark dark:text-primary-light mb-5"
         >
-          Я доступен в соц-сетях
+          {{ socialHeading }}
         </p>
         <ul class="flex gap-4 sm:gap-8">
           <a
@@ -32,10 +33,6 @@ export default {
             target="__blank"
             class="text-gray-400 hover:text-indigo-500 dark:hover:text-indigo-400 cursor-pointer rounded-lg bg-gray-50 dark:bg-ternary-dark hover:bg-gray-100 shadow-sm p-4 duration-500"
           >
-            <!-- <i
-							:data-feather="social.icon"
-							class="w-5 sm:w-8 h-5 sm:h-8"
-						></i> -->
             <font-awesome-icon :icon="['fab', `${social.icon}`]" size="2xl" />
           </a>
         </ul>

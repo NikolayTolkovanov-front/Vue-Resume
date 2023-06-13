@@ -1,16 +1,15 @@
 <script>
 export default {
-	props: ['title'],
-	data: () => {
-		return {
-			//
-		};
-	},
+  props: {
+    title: {
+      type: String,
+    },
+  },
 };
 </script>
 
 <template>
-	<button>{{ title }}</button>
+  <button>{{ title }}</button>
 </template>
 
 <style lang="scss" scoped></style>

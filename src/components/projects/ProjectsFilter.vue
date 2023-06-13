@@ -16,6 +16,12 @@ export default {
       ],
     },
   },
+
+  data() {
+    return {
+      startOptionText: "Все проекты"
+    }
+  }
 };
 </script>
 
@@ -26,7 +32,7 @@ export default {
     :id="select"
     class="font-roboto-medium px-4 py-2 border-1 border-gray-200 dark:border-secondary-dark rounded-lg text-sm sm:text-md bg-secondary-light dark:bg-ternary-dark text-primary-dark dark:text-ternary-light"
   >
-    <option value class="text-sm sm:text-md">All Projects</option>
+    <option value class="text-sm sm:text-md">{{ startOptionText }}</option>
     <option
       v-for="option in selectOptions"
       :key="option"

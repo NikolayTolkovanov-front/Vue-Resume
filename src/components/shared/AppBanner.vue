@@ -1,9 +1,12 @@
 <script>
 export default {
   name: "Home",
-  data: () => {
+  data() {
     return {
       theme: "",
+      bannerTitle: "Hi, I`am Nickolay Tolkovanov",
+      bannerSubTitle: "A Frontend Developer & Web master",
+      cvText: "Загрузить CV"
     };
   },
   created() {
@@ -24,12 +27,12 @@ export default {
       <h1
         class="font-roboto-bold text-3xl md:text-3xl xl:text-4xl text-center sm:text-left text-ternary-dark dark:text-primary-light uppercase"
       >
-        Hi, I`am Nickolay Tolkovanov
+        {{ bannerTitle }}
       </h1>
       <p
         class="font-roboto-light mt-2 text-lg sm:text-xl xl:text-2xl text-center sm:text-left leading-none text-gray-400"
       >
-        A Frontend Developer & Web master
+        {{ bannerSubTitle }}
       </p>
       <div class="flex justify-center sm:block">
         <a
@@ -43,7 +46,7 @@ export default {
             class="ml-0 sm:ml-1 mr-2 sm:mr-1 w-5 sm:w-6 duration-100"
           />
           <span class="text-sm sm:text-lg font-roboto-italic duration-100"
-            >Загрузить CV</span
+            >{{ cvText }}</span
           ></a
         >
       </div>

@@ -2,7 +2,7 @@
 import ProjectHeader from "@/components/projects/ProjectHeader.vue";
 import ProjectGallery from "@/components/projects/ProjectGallery.vue";
 import ProjectInfo from "@/components/projects/ProjectInfo.vue";
-// import ProjectRelatedProjects from "@/components/projects/ProjectRelatedProjects.vue";
+import ProjectRelatedProjects from "@/components/projects/ProjectRelatedProjects.vue";
 
 import { getProjectById, getProjectHeadings } from "@/data/projects";
 import { getSocialSharings } from "@/data/socialLinks";
@@ -13,7 +13,7 @@ export default {
     ProjectHeader,
     ProjectGallery,
     ProjectInfo,
-    // ProjectRelatedProjects,
+    ProjectRelatedProjects,
   },
   props: {
     projectId: {
@@ -26,36 +26,11 @@ export default {
       projectSharings : [],
       projectHeadings: {},
       projectTitle: "",
+      projectCategory: "",
       projectImages: [],
       projectTechnologies: [],
       projectObjective: "",
       projectDetails: [],
-
-      // relatedProject: {
-      //   relatedProjectsHeading: "Related Projects",
-      //   relatedProjects: [
-      //     {
-      //       id: 1,
-      //       title: "Mobile UI",
-      //       img: require("@/assets/images/mobile-project-1.jpg"),
-      //     },
-      //     {
-      //       id: 2,
-      //       title: "Web Application",
-      //       img: require("@/assets/images/web-project-1.jpg"),
-      //     },
-      //     {
-      //       id: 3,
-      //       title: "UI Design",
-      //       img: require("@/assets/images/ui-project-2.jpg"),
-      //     },
-      //     {
-      //       id: 4,
-      //       title: "Kabul Mobile App UI",
-      //       img: require("@/assets/images/mobile-project-2.jpg"),
-      //     },
-      //   ],
-      // },
     };
   },
   mounted() {
@@ -64,6 +39,7 @@ export default {
     this.projectSharings = getSocialSharings();
 
     this.projectTitle = this.currentProject.title;
+    this.projectCategory = this.currentProject.category;
     this.projectImages = this.currentProject.projectImages;
     this.projectTechnologies = this.currentProject.technologies;
     this.projectObjective = this.currentProject.objective;
@@ -90,7 +66,7 @@ export default {
     />
 
     <!-- Project related projects -->
-    <!-- <ProjectRelatedProjects :relatedProject="relatedProject" /> -->
+    <ProjectRelatedProjects :projectCategory="projectCategory" />
   </div>
 </template>
 
