@@ -2,30 +2,50 @@
 import Button from "@/components/reusable/Button.vue";
 import FormInput from "@/components/reusable/FormInput.vue";
 import FormTextarea from "@/components/reusable/FormTextarea.vue";
+import FormResult from "@/components/reusable/FormResult.vue";
 import { addBid } from "@/api/api";
 import { contactFormInfo } from "@/data/forms";
 
 export default {
   props: {
     showModal: {
-      type: Function
+      type: Function,
     },
     modal: {
-      type: Boolean
+      type: Boolean,
     },
   },
-  components: { Button, FormInput, FormTextarea },
+  components: { Button, FormInput, FormTextarea, FormResult },
   data() {
     return {
       userName: "",
       userEmail: "",
       userDescription: "",
       contactFormInfo,
+      showResult: false,
+      messageStatus: false,
+      isDisabled: false,
     };
   },
   methods: {
     addUserInfo() {
-      addBid(this.userName, this.userEmail, this.userDescription);
+      this.isDisabled = true;
+
+      addBid(this.userName, this.userEmail, this.userDescription, (res) => {
+        this.showResult = true;
+        this.isDisabled = false
+
+        setTimeout(() => {
+          this.showResult = false
+        }, 10_000);
+        
+        if (res?.ok) {
+          this.messageStatus = true
+        } else {
+          this.messageStatus = false
+        }
+      });
+
       this.userName = "";
       this.userEmail = "";
       this.userDescription = "";
@@ -37,6 +57,7 @@ export default {
 <template>
   <transition name="fade">
     <div v-show="modal" class="font-roboto-regular fixed inset-0 z-30">
+      <FormResult :showResult="showResult" :messageStatus="messageStatus" />
       <!-- Modal body background as backdrop -->
       <div
         v-show="modal"
@@ -90,6 +111,8 @@ export default {
 
                   <div class="mt-7 pb-4 sm:pb-1">
                     <Button
+                      :class="{'disabled:opacity-75 hover:bg-indigo-400': isDisabled}"
+                      :disabled="isDisabled"
                       :title="contactFormInfo.submitButton"
                       class="px-4 sm:px-6 py-2 sm:py-2.5 text-white bg-indigo-500 hover:bg-indigo-600 rounded-md focus:ring-1 focus:ring-indigo-900 duration-500"
                       type="submit"

@@ -1,17 +1,17 @@
 const headerLinks = [
   {
     id: 1,
-    link: "projects",
+    link: "/projects",
     title: "Проекты"
   },
   {
     id: 2,
-    link: "contact",
+    link: "/contact",
     title: "Контакты"
   },
   {
     id: 3,
-    link: "about",
+    link: "/about",
     title: "Обо мне"
   },
 ]
