@@ -42,7 +42,7 @@ export default {
   <transition name="fade">
     <div
       v-if="showMessage"
-      class="max-w-full p-3 absolute top-0 right-0 sm:max-w-sm bg-white dark:bg-ternary-dark dark:text-primary-light rounded-none sm:rounded-bl-lg z-40"
+      class="max-w-full p-3 fixed top-0 right-0 sm:max-w-sm bg-white dark:bg-ternary-dark dark:text-primary-light rounded-none sm:rounded-bl-lg z-40"
     >
       <p v-if="messageStatus" class="block mb-2 text-lg text-primary-dark dark:text-primary-light">
         {{ successMessage }}

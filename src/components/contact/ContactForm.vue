@@ -2,11 +2,12 @@
 import Button from "@/components/reusable/Button.vue";
 import FormInput from "@/components/reusable/FormInput.vue";
 import FormTextarea from "@/components/reusable/FormTextarea.vue";
+import FormResult from "@/components/reusable/FormResult.vue";
 import { addBid } from "@/api/api";
 import { contactFormInfo } from "@/data/forms";
 
 export default {
-  components: { Button, FormInput, FormTextarea },
+  components: { Button, FormInput, FormTextarea, FormResult },
   data() {
     return {
       userName: "",
@@ -14,11 +15,30 @@ export default {
       userDescription: "",
       category: "",
       contactFormInfo,
+      isDisabled: false,
+      showResult: false,
+      messageStatus: false,
     };
   },
   methods: {
     addUserInfo() {
-      addBid(this.userName, this.userEmail, this.userDescription);
+      this.isDisabled = true;
+
+      addBid(this.userName, this.userEmail, this.userDescription, (res) => {
+        this.showResult = true;
+        this.isDisabled = false;
+
+        setTimeout(() => {
+          this.showResult = false;
+        }, 10_000);
+
+        if (res?.ok) {
+          this.messageStatus = true;
+        } else {
+          this.messageStatus = false;
+        }
+      });
+
       this.userName = "";
       this.userEmail = "";
       this.userDescription = "";
@@ -29,6 +49,7 @@ export default {
 
 <template>
   <div class="w-full md:w-1/2">
+    <FormResult :showResult="showResult" :messageStatus="messageStatus" />
     <div
       class="leading-loose max-w-xl m-4 p-7 bg-secondary-light dark:bg-secondary-dark rounded-xl shadow-xl text-left"
     >
@@ -62,6 +83,8 @@ export default {
         <div>
           <Button
             :title="contactFormInfo.submitButton"
+            :class="{ 'disabled:opacity-75 hover:bg-indigo-400': isDisabled }"
+            :disabled="isDisabled"
             class="px-4 py-2.5 text-white tracking-wider bg-indigo-500 hover:bg-indigo-600 focus:ring-1 focus:ring-indigo-900 rounded-lg duration-500"
             type="submit"
             aria-label="Send Message"
