@@ -12,8 +12,10 @@ const getProjectHeadings = () => {
 };
 
 const getCategory = (categoryType) => {
-	return projectCategories.filter((category) => category.type === categoryType)[0].title
-}
+  return projectCategories.filter(
+    (category) => category.type === categoryType
+  )[0].title;
+};
 
 const projectCategories = [
   {
@@ -42,99 +44,74 @@ const projects = [
     projectImages: [
       {
         id: 1,
-        title: "Kabul Project Management UI",
-        img: require("@/assets/images/ui-project-1.jpg"),
+        title: "nimble",
+        img: require("@/assets/images/nimble.png"),
       },
       {
         id: 2,
-        title: "Kabul Project Management UI",
-        img: require("@/assets/images/web-project-2.jpg"),
-      },
-      {
-        id: 3,
-        title: "Kabul Project Management UI",
-        img: require("@/assets/images/mobile-project-2.jpg"),
+        title: "nimble-responsive",
+        img: require("@/assets/images/nimble-responsive.png"),
       },
     ],
-    objective: "some objective",
+    objective: "Создать кроссплатформенный лендинг с динамичными элементами",
     projectDetails: [
       {
         id: 1,
         details:
-          "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt totam dolorum, ducimus obcaecati, voluptas facilis molestias nobis ut quam natus similique inventore excepturi optio ipsa deleniti fugit illo. Unde, amet! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum illo necessitatibus perspiciatis! Aperiam perferendis labore temporibus, eos culpa corporis recusandae quas, fuga voluptatibus nesciunt odit libero tenetur neque consequatur ea.",
+          "Заказчик поставил задачу сделать вёрстку сайта, чтобы тот работал в таких браузерах, как  Safari, Mozilla FireFox, Opera, Google Chrome на последних версиях. Основная проблема заключалась с работой градиентов, которые слабо поддерживаются браузерами.",
       },
       {
         id: 2,
         details:
-          "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta?",
+          "Задача успешно выполнена с использованием различных методов работы с градиентами. Сайт функционирует на различных устройствах, таких как ПК, планшеты, мобильные телефоны и ноутбуки.",
       },
       {
         id: 3,
         details:
-          "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta?",
-      },
-      {
-        id: 4,
-        details:
-          "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt totam dolorum, ducimus obcaecati, voluptas facilis molestias nobis ut quam natus similique inventore excepturi optio ipsa deleniti fugit illo. Unde, amet! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum illo necessitatibus perspiciatis! Aperiam perferendis labore temporibus, eos culpa corporis recusandae quas, fuga voluptatibus nesciunt odit libero tenetur neque consequatur ea.",
+          "Дизайн сайта отличается креативностью благодаря анимированной графике и градиентным элементам.",
       },
     ],
-    technologies: ["HTML", "CSS", "JavaScript", "Vue.js", "TailwindCSS"],
+    technologies: ["HTML", "CSS", "JavaScript", "Swiper.js"],
   },
   {
     id: 2,
-    title: "Koel",
+    title: "Cryptonomicon",
     category: getCategory("web"),
-    img: require("@/assets/images/koel.png"),
+    img: require("@/assets/images/cryptonomicon-down.png"),
     projectImages: [
       {
         id: 1,
         title: "Kabul Project Management UI",
-        img: require("@/assets/images/ui-project-1.jpg"),
+        img: require("@/assets/images/cryptonomicon-up.png"),
       },
       {
         id: 2,
         title: "Kabul Project Management UI",
-        img: require("@/assets/images/web-project-2.jpg"),
+        img: require("@/assets/images/cryptonomicon-down.png"),
+      },
+    ],
+    objective: "Создать spa-приложение для получения обновления цен криптовалют",
+    projectDetails: [
+      {
+        id: 1,
+        details:
+          "Заказчик поставил задачу сделать вёрстку сайта, чтобы тот работал в таких браузерах, как  Safari, Mozilla FireFox, Opera, Google Chrome на последних версиях. Основная проблема заключалась с работой градиентов, которые слабо поддерживаются браузерами.",
+      },
+      {
+        id: 2,
+        details:
+          "Задача успешно выполнена с использованием различных методов работы с градиентами. Сайт функционирует на различных устройствах, таких как ПК, планшеты, мобильные телефоны и ноутбуки.",
       },
       {
         id: 3,
-        title: "Kabul Project Management UI",
-        img: require("@/assets/images/mobile-project-2.jpg"),
+        details:
+          "Дизайн сайта отличается креативностью благодаря анимированной графике и градиентным элементам.",
       },
     ],
-    objective: "some objective",
-    description: "lorem ispum",
     technologies: ["HTML", "CSS", "JavaScript", "Vue.js", "TailwindCSS"],
   },
   {
     id: 3,
-    title: "Cryptonomicon",
-    category: getCategory("web"),
-    img: require("@/assets/images/cryptonomicon.png"),
-    projectImages: [
-      {
-        id: 1,
-        title: "Kabul Project Management UI",
-        img: require("@/assets/images/ui-project-1.jpg"),
-      },
-      {
-        id: 2,
-        title: "Kabul Project Management UI",
-        img: require("@/assets/images/web-project-2.jpg"),
-      },
-      {
-        id: 3,
-        title: "Kabul Project Management UI",
-        img: require("@/assets/images/mobile-project-2.jpg"),
-      },
-    ],
-    objective: "some objective",
-    description: "lorem ispum",
-    technologies: ["HTML", "CSS", "JavaScript", "Vue.js", "TailwindCSS"],
-  },
-  {
-    id: 4,
     title: "Cloud Storage Platform",
     category: getCategory("design"),
     img: require("@/assets/images/ui-project-2.jpg"),
@@ -160,7 +137,7 @@ const projects = [
     technologies: ["HTML", "CSS", "JavaScript", "Vue.js", "TailwindCSS"],
   },
   {
-    id: 5,
+    id: 4,
     title: "React Social App",
     category: getCategory("mobile"),
     img: require("@/assets/images/mobile-project-1.jpg"),
@@ -186,7 +163,7 @@ const projects = [
     technologies: ["HTML", "CSS", "JavaScript", "Vue.js", "TailwindCSS"],
   },
   {
-    id: 6,
+    id: 5,
     title: "Apple Design System",
     category: getCategory("web"),
     img: require("@/assets/images/web-project-1.jpg"),
@@ -219,7 +196,5 @@ const projectHeadings = {
   projectDetailsHeading: "Выполнение задачи:",
   socialSharingsHeading: "Поделиться:",
 };
-
-
 
 export { projects, projectCategories, getProjectById, getProjectHeadings };
